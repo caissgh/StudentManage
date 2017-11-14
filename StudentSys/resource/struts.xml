@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+  <constant name="struts.devMode" value="true"></constant>
+   <package name="default" namespace="/" extends="struts-default">
+ 	 <action name="login" class="userAction" method="doLogin">
+   		   <result name="success" type="redirectAction">showStudents</result>
+   		   <result name="input">login.jsp</result>
+   	 </action>
+   	 <action name="logOut" class="userAction" method="doLogOut">
+   		   <result name="success">login.jsp</result>
+     </action>
+      <action name="showStudents" class="studentAction" method="showStudentList">
+   		   <result name="success">success.jsp</result>
+      </action>
+      <action name="addStudent" class="studentAction" method="addStudent">
+   		   <result name="success" type="redirectAction">showStudents</result>
+   		   <result name="input">addStudent.jsp</result>
+      </action>
+       <action name="updateStudent" class="studentAction" method="updateStudent">
+   		   <result name="success" type="redirectAction">showStudents</result>
+   		   <result name="input">UpdateStudent.jsp</result>
+      </action>
+      <action name="deleteStudent" class="studentAction" method="deleteStudent">
+   		   <result name="success" type="redirectAction">showStudents</result>
+   		   <result name="input" type="redirectAction">showStudents</result>
+      </action>
+       <action name="showClass" class="classesAction" method="findAllClasses">
+   		   <result name="success" type="redirectAction">showStu</result>
+      </action>
+      <action name="showStu" class="studentAction" method="showStudent">
+   		   <result name="success">UpdateStudent.jsp</result>
+      </action>
+      <action name="showClasses" class="classesAction" method="findAllClasses">
+   		   <result name="success">addStudent.jsp</result>
+      </action>
+   </package>
+</struts>    
